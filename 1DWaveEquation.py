@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 27 18:27:23 2020
-
-@author: willi
-"""
-
+# 1-d Wave Equation Solver
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -99,24 +93,3 @@ for i in np.arange(tt.size):
     plt.savefig('FrameStore/WaveEquation1D/Wave_'+str(i).zfill(6)+'.png',format='png');
     
     print('Done Frame ' + str(i) + '/' + str(tt.size-1))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
