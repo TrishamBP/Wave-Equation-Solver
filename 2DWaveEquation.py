@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 27 18:27:23 2020
-
-@author: willi
-"""
-
+# 2-d Wave Equation Solver
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
@@ -96,12 +90,6 @@ def u(x,y,t,N=N_l,M=N_l):
 pl_M=M/3
 
 
-
-
-
-
-
-
 t_S=2.5755;
 tS_R=np.round(t_S,3)
 
@@ -165,98 +153,70 @@ plt.show()
 
 
 
+Animation Image Production Code
+
+frames=500;
+T_0=0.0;T_f=10.0;
+
+tt=np.linspace(T_0,T_f,frames);
+tt_R=np.round(tt,3)
 
 
+fig2 = plt.figure('Wave Equation Animation')
 
-
-
-
-
-## Animation Image Production Code
-
-# frames=500;
-# T_0=0.0;T_f=10.0;
-
-# tt=np.linspace(T_0,T_f,frames);
-# tt_R=np.round(tt,3)
-
-
-# fig2 = plt.figure('Wave Equation Animation')
-
-# for i in np.arange(tt.size):     
-#     plt.clf()
-#     plt.cla()
+for i in np.arange(tt.size):     
+     plt.clf()
+     plt.cla()
 
         
-#     ax2 = plt.subplot(121,projection='3d')
+     ax2 = plt.subplot(121,projection='3d')
 
 
-#     ax2.plot_surface(X,Y,f(X,Y),alpha=0.5)
+     ax2.plot_surface(X,Y,f(X,Y),alpha=0.5)
     
-#     ax2.plot_surface(X,Y,u(X,Y,tt[i]),vmin=-pl_M,vmax=pl_M,alpha=.9,cmap=cm.coolwarm)
+     ax2.plot_surface(X,Y,u(X,Y,tt[i]),vmin=-pl_M,vmax=pl_M,alpha=.9,cmap=cm.coolwarm)
     
-#     ax2.view_init(elev=20., azim=-40)
+     ax2.view_init(elev=20., azim=-40)
     
-#     # ax.plot(x_pl,u(x_pl,0.1))
-    
-    
-#     ax2.set_xlim([0,L1])
-#     ax2.set_ylim([0,L2])
-#     ax2.set_zlim([-M,M])    
+     ax.plot(x_pl,u(x_pl,0.1))
     
     
-#     ax2.set_xlabel('x')
-#     ax2.set_ylabel('y')
-#     ax2.view_init(elev=20., azim=-40)
+     ax2.set_xlim([0,L1])
+     ax2.set_ylim([0,L2])
+     ax2.set_zlim([-M,M])    
     
-#     (ax2.set_title('Truncated FS Solution to \n'+' Linear 2D Wave Equation \n'+
-#               r'$a^2\left(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}\right)=\frac{\partial^2 u}{\partial t^2}$, '+'a='+str(np.round(a,3))+'\n'+
-#               r'$u(x,y,t)$ at $t=$'+str(tt_R[i]),fontsize=12))
+    
+     ax2.set_xlabel('x')
+     ax2.set_ylabel('y')
+     ax2.view_init(elev=20., azim=-40)
+    
+     (ax2.set_title('Truncated FS Solution to \n'+' Linear 2D Wave Equation \n'+
+               r'$a^2\left(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}\right)=\frac{\partial^2 u}{\partial t^2}$, '+'a='+str(np.round(a,3))+'\n'+
+               r'$u(x,y,t)$ at $t=$'+str(tt_R[i]),fontsize=12))
         
-#     # ax2.set_zlabel('Wave Height')
+      ax2.set_zlabel('Wave Height')
     
     
     
-#     ax4=plt.subplot(1,2,2)
-#     waveh=ax4.pcolormesh(X,Y,u(X,Y,tt[i]),shading='nearest',vmin=-pl_M,vmax=pl_M,cmap=cm.coolwarm)
+    ax4=plt.subplot(1,2,2)
+    waveh=ax4.pcolormesh(X,Y,u(X,Y,tt[i]),shading='nearest',vmin=-pl_M,vmax=pl_M,cmap=cm.coolwarm)
     
-#     plt.colorbar(waveh)
+    plt.colorbar(waveh)
     
     
-#     # ax4.set_xlabel('x')
-#     # ax4.set_ylabel('y')
+    ax4.set_xlabel('x')
+    ax4.set_ylabel('y')
     
-#     ax4.set_xlim([0,L1])
-#     ax4.set_ylim([0,L2])
+    ax4.set_xlim([0,L1])
+    ax4.set_ylim([0,L2])
     
-#     plt.axis('equal')
+    plt.axis('equal')
     
-#     fig2.tight_layout(h_pad=10)
+    fig2.tight_layout(h_pad=10)
     
     
 
             
-#     plt.savefig('FrameStore/WaveEquation2D/Wave_'+str(i).zfill(6)+'.png',format='png');
+    plt.savefig('FrameStore/WaveEquation2D/Wave_'+str(i).zfill(6)+'.png',format='png');
     
-#     print('Done Frame ' + str(i) + '/' + str(tt.size-1))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print('Done Frame ' + str(i) + '/' + str(tt.size-1))
